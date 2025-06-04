@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build image
         run: |
-          docker build -t devopseasybr/${{ inputs.folder }}:${{ inputs.tag }} -f ${{ inputs.folder }}/Dockerfile ./${{ inputs.folder }}
+          docker build -t devopseasybr/${{ inputs.folder }}:${{ inputs.tag }} -f ${{ inputs.folder }}/Dockerfile ${{ inputs.folder }}
       - name: Save image
         run: |
           docker save devopseasybr/${{ inputs.folder }}:${{ inputs.tag }} -o ${{ inputs.folder }}.tar
