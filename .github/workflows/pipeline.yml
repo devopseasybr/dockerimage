@@ -65,7 +65,7 @@ jobs:
           name: docker-image-tarball # Deve corresponder EXATAMENTE ao nome no upload
           # No mesmo workflow, NÃO PRECISA de repository nem run-id!
           repository: ${{ github.repository }} # REMOVER
-          run-id: ${{ needs.Build.outputs.workflow_run_id }} # REMOVER
+          run-id: 3262220304 # REMOVER
 
       - name: Carregar Imagem do Tarball
         run: |
