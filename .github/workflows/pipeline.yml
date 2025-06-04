@@ -88,9 +88,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: docker-image-tarball # Deve corresponder EXATAMENTE ao nome no upload
-          # No mesmo workflow, NÃO PRECISA de repository nem run-id!
-          # repository: devopseasybr/dockerimage # REMOVER
-          # run-id: 15449580345 # REMOVER
 
       - name: Carregar Imagem do Tarball
         run: |
