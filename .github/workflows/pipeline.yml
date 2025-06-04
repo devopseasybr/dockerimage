@@ -39,7 +39,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: image
+          name: docker-image
           path: |
             ${{ inputs.folder }}.tar
 
@@ -55,7 +55,7 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
-          name: image
+          name: docker-image
       - name: Load image
         run: |
           docker image load -i ${{ inputs.folder }}.tar
