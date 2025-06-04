@@ -6,7 +6,7 @@ ENV TERRAFORM_URL=https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/te
 WORKDIR /home/terraform 
 
 RUN apk update \
-    && apk add --no-cache curl=8.14.0-r2 \
+    && apk add --no-cache curl \
     && addgroup -g 1000 -S terraform \
     && adduser  -u 1000 -S terraform -G terraform \
     && curl -O $TERRAFORM_URL && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin/ \
