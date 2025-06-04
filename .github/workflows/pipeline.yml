@@ -18,6 +18,9 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
+    outputs:
+      # O output do job será o ID da execução atual (que é onde o artefato foi uploaded)
+      workflow_run_id: ${{ github.run_id }}
     container:
       image: docker:latest
       # credentials: # Removido, pois não é necessário para o container Docker Hub padrão
@@ -61,8 +64,8 @@ jobs:
         with:
           name: docker-image-tarball # Deve corresponder EXATAMENTE ao nome no upload
           # No mesmo workflow, NÃO PRECISA de repository nem run-id!
-          # repository: devopseasybr/dockerimage # REMOVER
-          # run-id: 15449580345 # REMOVER
+          repository: ${{ github.repository }} # REMOVER
+          run-id: ${{ needs.Build.outputs.workflow_run_id }} # REMOVER
 
       - name: Carregar Imagem do Tarball
         run: |
