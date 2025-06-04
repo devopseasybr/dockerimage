@@ -59,9 +59,9 @@ jobs:
       - name: Load image
         run: |
           docker image load -i ${{ inputs.folder }}.tar
-      - name: Grype image
+      - name: Trivy image
         run: |
-          grype devopseasybr/${{ inputs.folder }}:${{ inputs.tag }}
+          trivy image --input devopseasybr/${{ inputs.folder }}:${{ inputs.tag }}
       - name: Remove image
         run: |
           docker rmi devopseasybr/${{ inputs.folder }}:${{ inputs.tag }}
